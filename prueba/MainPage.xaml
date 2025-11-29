@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prueba.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            Spacing="25"
+            VerticalOptions="Start">
+
+            <Label x:Name="BienvenidaLabel"
+                   Text="Sistema de Inventarios"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,40,0,0" />
+
+            <Label x:Name="EstablecimientoLabel"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   TextColor="Gray" />
+
+            <Frame BorderColor="{StaticResource Primary}"
+                   CornerRadius="10"
+                   Padding="15"
+                   HasShadow="True"
+                   Margin="0,20,0,0">
+                <VerticalStackLayout Spacing="12">
+                    
+                    <Button Text="= Dashboard"
+                            Clicked="OnDashboardClicked"
+                            BackgroundColor="#4A90E2"
+                            TextColor="White"
+                            FontSize="18"
+                            HeightRequest="60" />
+
+                    <Button Text="# Gestionar Areas"
+                            Clicked="OnAreasClicked"
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White"
+                            FontSize="18"
+                            HeightRequest="60" />
+
+                    <Button Text="= Reportes"
+                            Clicked="OnReportesClicked"
+                            BackgroundColor="{StaticResource Secondary}"
+                            TextColor="White"
+                            FontSize="18"
+                            HeightRequest="60" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label x:Name="AlertasLabel"
+                   FontSize="14"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+
+            <Label Text="Inventario offline con SQLite"
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   Margin="0,10,0,20" />
+                
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
