@@ -24,6 +24,11 @@
             Route="areas" />
 
         <ShellContent
+            Title="Reportes"
+            ContentTemplate="{DataTemplate pages:ReportesPage}"
+            Route="reportes" />
+
+        <ShellContent
             Title="Mi Perfil"
             ContentTemplate="{DataTemplate pages:PerfilPage}"
             Route="perfil" />

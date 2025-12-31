@@ -35,7 +35,6 @@
                    HasShadow="True"
                    Margin="0,20,0,0">
                 <VerticalStackLayout Spacing="12">
-                    
                     <Button Text="= Dashboard"
                             Clicked="OnDashboardClicked"
                             BackgroundColor="#4A90E2"
