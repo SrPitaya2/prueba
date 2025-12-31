@@ -198,29 +198,31 @@ namespace prueba.Pages
                 });
             }
 
-            // Botón VER con símbolo Unicode
+            // Boton VER con simbolo Unicode
             var verBtn = new Button
             {
-                Text = "i",
+                Text = "â„¹ï¸",
                 FontSize = 24,
                 FontAttributes = FontAttributes.Bold,
                 BackgroundColor = Color.FromArgb("#4A90E2"),
                 TextColor = Colors.White,
                 WidthRequest = 50,
-                HeightRequest = 50
+                HeightRequest = 50,
+                Padding = new Thickness(0)
             };
             verBtn.Clicked += async (s, e) => await OnVerDetalleClicked(producto);
 
-            // Botón ELIMINAR con símbolo Unicode
+            // Botonn ELIMINAR con simbolo Unicode
             var eliminarBtn = new Button
             {
-                Text = "?",
+                Text = "ðŸ—‘ï¸",
                 FontSize = 24,
                 FontAttributes = FontAttributes.Bold,
                 BackgroundColor = Colors.Red,
                 TextColor = Colors.White,
                 WidthRequest = 50,
-                HeightRequest = 50
+                HeightRequest = 50,
+                Padding = new Thickness(0)
             };
             eliminarBtn.Clicked += async (s, e) => await OnEliminarProductoClicked(producto);
 
@@ -334,7 +336,7 @@ namespace prueba.Pages
                         }
                         else
                         {
-                            // Usuario canceló, revertir el valor
+                            // Usuario cancelï¿½, revertir el valor
                             stockEntry.Text = producto.Stock.ToString();
                         }
                     }

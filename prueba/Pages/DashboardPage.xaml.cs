@@ -33,18 +33,18 @@ namespace prueba.Pages
 
                 await MainThread.InvokeOnMainThreadAsync(() =>
                 {
-                    TotalProductosLabel.Text = $"# Total de Productos: {totalProductos}";
-                    TotalAreasLabel.Text = $"= Areas: {areas.Count}";
+                    TotalProductosLabel.Text = $"Total de Productos: {totalProductos}";
+                    TotalAreasLabel.Text = $"Areas: {areas.Count}";
                     
                     if (productosStockBajo.Count > 0)
                     {
-                        ProductosStockBajoLabel.Text = $"! Productos con stock bajo: {productosStockBajo.Count}";
+                        ProductosStockBajoLabel.Text = $"Productos con stock bajo: {productosStockBajo.Count}";
                         ProductosStockBajoLabel.TextColor = Colors.Red;
                         ProductosStockBajoLabel.FontAttributes = FontAttributes.Bold;
                     }
                     else
                     {
-                        ProductosStockBajoLabel.Text = "v Todos los productos con stock adecuado";
+                        ProductosStockBajoLabel.Text = "Todos los productos con stock adecuado";
                         ProductosStockBajoLabel.TextColor = Colors.Green;
                     }
                 });

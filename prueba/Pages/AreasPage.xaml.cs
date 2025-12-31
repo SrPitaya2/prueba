@@ -49,7 +49,7 @@ namespace prueba.Pages
             {
                 AreasContainer.Add(new Label
                 {
-                    Text = "No hay áreas. Agrega una nueva.",
+                    Text = "No hay areas. Agrega una nueva.",
                     HorizontalOptions = LayoutOptions.Center,
                     TextColor = Colors.Gray,
                     Margin = new Thickness(0, 40, 0, 0)
@@ -105,10 +105,13 @@ namespace prueba.Pages
 
                     var eliminarBtn = new Button
                     {
-                        Text = "?",
+                        Text = "ðŸ—‘ï¸",
                         BackgroundColor = Colors.Red,
                         TextColor = Colors.White,
-                        WidthRequest = 50
+                        WidthRequest = 50,
+                        HeightRequest = 50,
+                        FontSize = 24,
+                        Padding = new Thickness(0)
                     };
                     eliminarBtn.Clicked += async (s, e) => await OnEliminarAreaClicked(area);
 
@@ -131,8 +134,8 @@ namespace prueba.Pages
         {
             if (_establecimiento == null) return;
 
-            string nombre = await DisplayPromptAsync("Nueva Área", "Nombre del área:", 
-                placeholder: "Ej: Almacén, Cocina, Ventas...");
+            string nombre = await DisplayPromptAsync("Nueva Area", "Nombre del area:", 
+                placeholder: "Ej: Almacen, Cocina, Ventas...");
 
             if (!string.IsNullOrWhiteSpace(nombre))
             {
@@ -155,7 +158,7 @@ namespace prueba.Pages
         private async Task OnEliminarAreaClicked(Area area)
         {
             bool confirmar = await DisplayAlert("Confirmar", 
-                $"¿Eliminar el área '{area.Nombre}' y todos sus productos?", 
+                $"Eliminar el area '{area.Nombre}' y todos sus productos?", 
                 "Eliminar", "Cancelar");
 
             if (confirmar)
