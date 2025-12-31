@@ -426,7 +426,7 @@ namespace prueba.Pages
             {
                 AreaId = _areaId,
                 Nombre = nombre.Trim(),
-                Stock = stock,
+                Stock = 0,
                 StockMinimo = stockMinimo,
                 UnidadMedida = unidadSeleccionada
             };

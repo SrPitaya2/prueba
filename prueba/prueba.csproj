@@ -41,6 +41,7 @@
 		<WindowsPackageType>MSIX</WindowsPackageType>
 		<WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
 		<UseMonoRuntime>false</UseMonoRuntime>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
 	</PropertyGroup>
 
