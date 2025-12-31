@@ -1,1 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8" ?><ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="prueba.Pages.DashboardPage" Title="Dashboard"><ScrollView Padding="20"><VerticalStackLayout Spacing="20"><Label Text="Resumen de Inventario" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/><Frame BorderColor="{StaticResource Primary}" CornerRadius="10" Padding="20" HasShadow="True"><VerticalStackLayout Spacing="15"><Label Text="Estadisticas Generales" FontSize="20" FontAttributes="Bold"/><Label x:Name="TotalProductosLabel" FontSize="16"/><Label x:Name="TotalAreasLabel" FontSize="16"/><Label x:Name="ProductosStockBajoLabel" FontSize="16"/></VerticalStackLayout></Frame><Label Text="Productos con Stock Bajo" FontSize="20" FontAttributes="Bold"/><VerticalStackLayout x:Name="ProductosAlertaContainer" Spacing="10"/><Label Text="Movimientos Recientes" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/><VerticalStackLayout x:Name="MovimientosRecientesContainer" Spacing="10"/></VerticalStackLayout></ScrollView></ContentPage>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="prueba.Pages.DashboardPage"
+             Title="Dashboard">
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+            <Label Text="Resumen de Inventario" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center"/>
+            
+            <Frame BorderColor="{StaticResource Primary}" CornerRadius="10" Padding="20" HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Estadisticas Generales" FontSize="20" FontAttributes="Bold"/>
+                    <Label x:Name="TotalProductosLabel" FontSize="16"/>
+                    <Label x:Name="TotalAreasLabel" FontSize="16"/>
+                    <Label x:Name="ProductosStockBajoLabel" FontSize="16"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Productos con Stock Bajo" FontSize="20" FontAttributes="Bold"/>
+            <VerticalStackLayout x:Name="ProductosAlertaContainer" Spacing="10"/>
+
+            <Label Text="Movimientos Recientes" FontSize="20" FontAttributes="Bold" Margin="0,20,0,0"/>
+            <VerticalStackLayout x:Name="MovimientosRecientesContainer" Spacing="10"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,5 +1,6 @@
 using prueba.Models;
 using prueba.Services;
+using System.Diagnostics;
 
 namespace prueba.Pages
 {
@@ -7,6 +8,7 @@ namespace prueba.Pages
     {
         private readonly DatabaseService _databaseService;
         private Establecimiento? _establecimientoActual;
+        private string? _tempLogoPath;
 
         public ConfiguracionPage(DatabaseService databaseService)
         {
@@ -30,8 +32,13 @@ namespace prueba.Pages
                 {
                     NombreEntry.Text = _establecimientoActual.Nombre;
                     TituloLabel.Text = "Editar Establecimiento";
-                    SubtituloLabel.Text = "Modifica el nombre de tu establecimiento";
+                    SubtituloLabel.Text = "Modifica los datos de tu establecimiento";
                     GuardarBtn.Text = "Guardar Cambios";
+
+                    if (!string.IsNullOrEmpty(_establecimientoActual.LogoPath))
+                    {
+                        LogoPreview.Source = ImageSource.FromFile(_establecimientoActual.LogoPath);
+                    }
                 }
                 else
                 {
@@ -46,6 +53,42 @@ namespace prueba.Pages
             }
         }
 
+        private async void OnSeleccionarLogoClicked(object? sender, EventArgs e)
+        {
+            try
+            {
+                var result = await MediaPicker.Default.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Selecciona un logo PNG"
+                });
+
+                if (result != null)
+                {
+                    // Validar extensin (opcional, el MediaPicker ya ayuda)
+                    if (!result.FileName.ToLower().EndsWith(".png") && !result.FileName.ToLower().EndsWith(".jpg") && !result.FileName.ToLower().EndsWith(".jpeg"))
+                    {
+                        await DisplayAlert("Aviso", "Se recomienda usar un formato PNG", "OK");
+                    }
+
+                    // Guardar en directorio local para persistencia
+                    var localPath = Path.Combine(FileSystem.AppDataDirectory, $"logo_{DateTime.Now.Ticks}_{result.FileName}");
+                    
+                    using (var stream = await result.OpenReadAsync())
+                    using (var newStream = File.OpenWrite(localPath))
+                    {
+                        await stream.CopyToAsync(newStream);
+                    }
+
+                    _tempLogoPath = localPath;
+                    LogoPreview.Source = ImageSource.FromFile(localPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", $"Error al seleccionar imagen: {ex.Message}", "OK");
+            }
+        }
+
         private async void OnGuardarClicked(object? sender, EventArgs e)
         {
             try
@@ -56,10 +99,13 @@ namespace prueba.Pages
                     return;
                 }
 
-                var establecimiento = new Establecimiento
+                var establecimiento = _establecimientoActual ?? new Establecimiento();
+                establecimiento.Nombre = NombreEntry.Text.Trim();
+                
+                if (!string.IsNullOrEmpty(_tempLogoPath))
                 {
-                    Nombre = NombreEntry.Text.Trim()
-                };
+                    establecimiento.LogoPath = _tempLogoPath;
+                }
 
                 await _databaseService.SaveEstablecimientoAsync(establecimiento);
 

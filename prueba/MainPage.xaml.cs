@@ -54,6 +54,16 @@ namespace prueba
                 else
                 {
                     EstablecimientoLabel.Text = establecimiento.Nombre;
+
+                    // Cargar Logo si existe
+                    if (!string.IsNullOrEmpty(establecimiento.LogoPath))
+                    {
+                        MainThread.BeginInvokeOnMainThread(() =>
+                        {
+                            HomeLogo.Source = ImageSource.FromFile(establecimiento.LogoPath);
+                            HomeLogo.IsVisible = true;
+                        });
+                    }
                     Debug.WriteLine("Configuracion OK");
                 }
             }

@@ -9,6 +9,8 @@ namespace prueba.Models
 
         public string? Nombre { get; set; }
 
+        public string? LogoPath { get; set; }
+
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
     }
 }
